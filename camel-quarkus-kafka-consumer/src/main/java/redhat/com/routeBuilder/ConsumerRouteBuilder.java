@@ -17,7 +17,7 @@ public class ConsumerRouteBuilder extends RouteBuilder{
         from("kafka:"+ KAFKA_TOPIC + "?brokers=" + KAFKA_BOOTSTRAP_SERVERS + "&groupId=" + KAFKA_GROUP_ID)
         .routeId("kafkaConsumer")
         .log("Message received from Kafka : ${body}")
-        .to("file:/tmp/?fileName=message-${date:now:yyyyMMdd}.txt");
+        .to("file:/tmp/?fileName=message-${date:now:yyyy-MM-dd'T'HH:mm:ss}.txt");
         ;
     }
 }
