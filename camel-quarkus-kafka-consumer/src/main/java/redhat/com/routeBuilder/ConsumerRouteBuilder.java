@@ -1,19 +1,9 @@
 package redhat.com.routeBuilder;
 
 
-import org.apache.camel.component.mongodb.MongoDbConstants;
-
-import com.mongodb.client.model.Filters;
-
-import org.apache.camel.Exchange;
-import org.apache.camel.ExchangePattern;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.jackson.JacksonDataFormat;
-import org.apache.camel.component.kafka.KafkaConstants;
-import org.apache.camel.model.rest.RestBindingMode;
 import redhat.com.models.Product;
-import org.apache.camel.LoggingLevel;
-import org.bson.types.ObjectId;
 
 
 public class ConsumerRouteBuilder extends RouteBuilder{
