@@ -17,7 +17,9 @@ public class ConsumerRouteBuilder extends RouteBuilder{
         from("kafka:"+ KAFKA_TOPIC + "?brokers=" + KAFKA_BOOTSTRAP_SERVERS + "&groupId=" + KAFKA_GROUP_ID)
         .routeId("kafkaConsumer")
         .log("Message received from Kafka : ${body}")
-        .to("file:/tmp/mmessage-${date:in.header.orderDate:yyyyMMddHHmmss}.txt");
+        .removeHeaders("*")
+        .setHeader("CamelFileName", constant("message-" + new SimpleDateFormat("yyyy-MM-dd-HH-mm:ss.SSS", Locale.US).format(new Date()) + ".txt"))
+        .to( "file:/tmp");
         ;
     }
 }
